@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+  
+      <form id="note-edit" (ngSubmit)="onSubmit(f)" #f ="ngForm">
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="name">Note Title:</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              size="120"
+              max="120"
+              name="name"
+              [ngModel] ="note?.name"
+              required
+              #name="ngModel">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="subject">Note Subject:</label>
+            <input
+              type="text"
+              id="subject"
+              class="form-control"
+              size="120"
+              max="255"
+              name="subject"
+              [ngModel]="note?.subject">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="noteText">Note Text:</label>
+            <input
+              type="text"
+              id="noteText"
+              class="form-control"
+              size="150"
+              max="255"
+              name="noteText"
+              [ngModel]="note?.noteText"
+              required
+              #noteText="ngModel">
+              
+          </div>
+        </div>
+        <div style="margin-bottom: 5px; padding: 2px;" class="alert-danger" *ngIf="(!name.valid && name.touched) || (!noteText.valid && noteText.touched)">The Note Title and Note Text are required fields</div>
+  
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <button class="btn btn-success" type="submit" [disabled]="!f.valid" >Save</button>
+            <button class="btn btn-primary" type="button"(click)="onCancel()" >Cancel</button>
+          </div>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
+  
+  

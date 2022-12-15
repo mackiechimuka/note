@@ -1,0 +1,15 @@
+<div class="panel panel-default" style="margin-top:10px ;">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title"  style="font-weight: bold; font-size: 22px;">Notes</span>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Notes</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <p *ngIf="isloading ===true">Loading...</p>
+      <app-note-item *ngFor="let noteL of notes" [note]="noteL"></app-note-item>
+    </div>
+  </div>
+
+</div>
